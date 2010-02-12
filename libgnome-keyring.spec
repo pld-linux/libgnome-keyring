@@ -15,7 +15,9 @@ URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 1.0
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	eggdbus-devel >= 0.4
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.9}
 BuildRequires:	intltool >= 0.40.0
