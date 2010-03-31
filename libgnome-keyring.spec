@@ -5,12 +5,12 @@
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
-Version:	2.29.4
+Version:	2.30.0
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/2.29/%{name}-%{version}.tar.bz2
-# Source0-md5:	09e2fba1ffad767b7a2f678fc37f64aa
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/2.30/%{name}-%{version}.tar.bz2
+# Source0-md5:	d267de8d0bc3d2c7b0f23135b98ee8c9
 URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -76,7 +76,8 @@ Dokumentacja API biblioteki libgnome-keyring.
 %{__automake}
 %configure \
 	%{__enable_disable apidocs gtk-doc} \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -89,13 +90,15 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}
 %endif
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog HACKING NEWS README
 %attr(755,root,root) %{_libdir}/libgnome-keyring.so.*.*.*
