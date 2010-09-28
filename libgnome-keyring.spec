@@ -5,12 +5,12 @@
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
-Version:	2.30.1
+Version:	2.32.0
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	11ce9e5ca66cf934e243ddd68f52adc9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/2.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	c42b2ca66204835d901d3dbfc1fa5ae6
 URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf
 BuildRequires:	automake
