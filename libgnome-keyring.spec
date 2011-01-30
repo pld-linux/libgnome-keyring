@@ -42,6 +42,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgnome-keyring
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.16.0
+Requires:	libgcrypt-devel >= 1.2.2
 Conflicts:	gnome-keyring-devel < 2.29.0
 
 %description devel
