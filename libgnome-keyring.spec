@@ -5,18 +5,17 @@
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
-Version:	2.32.0
+Version:	2.91.92
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/2.32/%{name}-%{version}.tar.bz2
-# Source0-md5:	c42b2ca66204835d901d3dbfc1fa5ae6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/2.91/%{name}-%{version}.tar.bz2
+# Source0-md5:	3b84c940bea3388a7ed4aa385cf14fc5
 URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= 1.0
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	eggdbus-devel >= 0.4
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.9}
@@ -87,6 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %if %{without apidocs}
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}
 %endif
@@ -108,7 +109,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome-keyring.so
-%{_libdir}/libgnome-keyring.la
 %{_includedir}/gnome-keyring-1
 %{_pkgconfigdir}/gnome-keyring-1.pc
 
