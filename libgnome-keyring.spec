@@ -24,6 +24,8 @@ BuildRequires:	libgcrypt-devel >= 1.2.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Conflicts:	gnome-keyring-libs < 2.29.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
