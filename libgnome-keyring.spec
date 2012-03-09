@@ -5,11 +5,11 @@
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
-Version:	3.2.2
+Version:	3.3.91
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.2/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.3/%{name}-%{version}.tar.xz
 # Source0-md5:	51b822605b45c8ea0f6df68fdc3ee611
 URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf
@@ -18,6 +18,7 @@ BuildRequires:	dbus-devel >= 1.0
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gobject-introspection-devel >= 1.30.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.9}
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.2
@@ -107,10 +108,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog HACKING NEWS README
 %attr(755,root,root) %{_libdir}/libgnome-keyring.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgnome-keyring.so.0
+%{_libdir}/girepository-1.0/GnomeKeyring-1.0.typelib
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome-keyring.so
+%{_datadir}/gir-1.0/GnomeKeyring-1.0.gir
 %{_includedir}/gnome-keyring-1
 %{_pkgconfigdir}/gnome-keyring-1.pc
 
