@@ -27,6 +27,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	glib2 >= 1:2.16.0
+Requires:	libgcrypt >= 1.2.2
 Conflicts:	gnome-keyring-libs < 2.29.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
