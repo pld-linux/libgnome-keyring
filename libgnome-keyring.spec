@@ -1,16 +1,17 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
+%bcond_without	vala		# do not build Vala API
 #
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
-Version:	3.4.1
+Version:	3.6.0
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	b7c5abd89fd92344b15e7adf3079a54a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	4d8a8e81e6f5413c2c0c472380988e6e
 URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,6 +27,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRequires:	tar >= 1:1.22
+%{?with_vala:BuildRequires:	vala >= 2:0.16.0}
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.16.0
 Requires:	libgcrypt >= 1.2.2
@@ -68,6 +70,19 @@ libgnome-keyring library API documentation.
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki libgnome-keyring.
 
+%package -n vala-libgnome-keyring
+Summary:	libgnome-keyring API for Vala language
+Summary(pl.UTF-8):	API libgnome-keyring dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 2:0.16.0
+
+%description -n vala-libgnome-keyring
+libgnome-keyring API for Vala language.
+
+%description -n vala-libgnome-keyring -l pl.UTF-8
+API libgnome-keyring dla języka Vala.
+
 %prep
 %setup -q
 
@@ -82,6 +97,7 @@ Dokumentacja API biblioteki libgnome-keyring.
 %configure \
 	%{__enable_disable apidocs gtk-doc} \
 	--with-html-dir=%{_gtkdocdir} \
+	%{__enable_disable vala vala-bindings} \
 	--disable-silent-rules
 %{__make}
 
@@ -123,4 +139,10 @@ rm -rf $RPM_BUILD_ROOT
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gnome-keyring
+%endif
+
+%if %{with vala}
+%files -n vala-libgnome-keyring
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/gnome-keyring-1.vapi
 %endif
