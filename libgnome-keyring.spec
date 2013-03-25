@@ -6,12 +6,12 @@
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
-Version:	3.6.0
-Release:	2
+Version:	3.8.0
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	4d8a8e81e6f5413c2c0c472380988e6e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	caec6bcfac4d1fce6927c2338bdc5058
 URL:		http://live.gnome.org/GnomeKeyring
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -97,7 +97,7 @@ API libgnome-keyring dla języka Vala.
 %configure \
 	%{__enable_disable apidocs gtk-doc} \
 	--disable-silent-rules \
-	%{__enable_disable vala vala-bindings} \
+	%{__enable_disable vala vala} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
