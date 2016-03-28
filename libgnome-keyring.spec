@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
 %bcond_without	vala		# do not build Vala API
-#
+
 Summary:	libgnome-keyring library
 Summary(pl.UTF-8):	Biblioteka libgnome-keyring
 Name:		libgnome-keyring
 Version:	3.12.0
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnome-keyring/3.12/%{name}-%{version}.tar.xz
@@ -76,6 +76,9 @@ Summary(pl.UTF-8):	API libgnome-keyring dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.16.0
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-libgnome-keyring
 libgnome-keyring API for Vala language.
