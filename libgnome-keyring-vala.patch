@@ -1,0 +1,12 @@
+diff -ur libgnome-keyring-3.12.0.orig/library/GnomeKeyring-1.0.metadata libgnome-keyring-3.12.0/library/GnomeKeyring-1.0.metadata
+--- libgnome-keyring-3.12.0.orig/library/GnomeKeyring-1.0.metadata	2014-01-16 19:28:19.000000000 +0100
++++ libgnome-keyring-3.12.0/library/GnomeKeyring-1.0.metadata	2019-08-18 15:01:22.392000000 +0200
+@@ -54,7 +54,7 @@
+ set_network_password skip=false
+ store_password skip=false
+ store_password_sync skip=false
+-unlock skip=false
++@unlock skip=false
+ 
+ find_items*.callback type_arguments="GnomeKeyring.Found"
+ find_network_password*.callback type_arguments="GnomeKeyring.NetworkPasswordData"
